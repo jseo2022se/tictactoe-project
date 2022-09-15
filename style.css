@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: repeat(3, 200px);
+    justify-content: center;
+    align-content: center;
+}
+
+.square {
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+}
