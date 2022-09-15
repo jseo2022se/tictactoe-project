@@ -2,6 +2,25 @@ body {
     margin: 0;
 }
 
+.title {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-size: 50px;
+    outline: 2px solid black;
+}
+
+h1 {
+    font-size: 50px;
+    border: 2px solid black;
+}
+
+.players {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .container {
     display: grid;
     width: 100vw;
