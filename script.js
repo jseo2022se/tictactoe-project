@@ -29,6 +29,13 @@ let person1 = new Person('James', 0)
 let person2 = new Person('John', 0)
 
 
+let playerOne = document.querySelector('.player-one')
+
+let playerTwo = document.querySelector('.player-two')
+
+let scoreOne = document.querySelector('.score-one')
+
+let scoreTwo = document.querySelector('.score-two')
 
 let turn = true
 
@@ -38,10 +45,21 @@ startGame()
 
 function startGame () {
 
+    playerOne.textContent = `${person1.name}`
+
+    playerTwo.textContent = `${person2.name}`
 
     squares.forEach(square => {
 
-        console.log(square)
+        let red = 'red'
+        let blue = 'blue'
+        
+        if (square.classList.contains(red)) {
+            square.classList.remove(red)
+
+        } else if (square.classList.contains(blue)) {
+            square.classList.remove(blue)
+        }
     
         square.addEventListener('click', selectSquare)
     })
@@ -61,14 +79,46 @@ function selectSquare (event) {
 
         if(check) {
 
-            alert('Player One wins!')
-            alert('Reload page')
-            location.reload()
+            person1.wins++
+
+            scoreOne.textContent = `Wins: ${person1.wins}`
+
+            if (person1.wins == 3) {
+
+                setTimeout(() => {
+
+                    alert(`Congratulations to ${person1.name}! You have won!`)
+
+                    if(confirm('Would you like to play again?')) {
+
+                        alert('Resetting game...')
+                        location.reload()
+                        
+                    } else {
+
+                        alert('Thank you for playing. Good bye.')
+                        window.close()
+                    }
+                }, '350')
+                
+            } else {
+
+                setTimeout(() => {
+
+                alert(`${person1.name} wins!`)
+                alert('Resetting board')
+                startGame()
+
+            }, '350')
+        }
 
         } else {
 
-            draw()
-             
+            setTimeout(() => {
+
+                draw()
+            }, '350')
+
         }
 
     } else {
@@ -82,13 +132,45 @@ function selectSquare (event) {
 
         if(check) {
 
-            alert('Player Two wins!')
-            alert('Reload page')
-            location.reload()
+            person2.wins++
+
+            scoreTwo.textContent = `Wins: ${person2.wins}`
+
+            if (person2.wins == 3) {
+
+                setTimeout(() => {
+
+                    alert(`Congratulations to ${person2.name}! You have won!`)
+    
+                    if(confirm('Would you like to play again?')) {
+
+                        alert('Resetting game...')
+                        location.reload()
+
+                    } else {
+    
+                        alert('Thank you for playing. Good bye.')
+                        window.close()
+                    }
+                }, '350')
+
+            } else { 
+
+                setTimeout(() => {
+
+                alert(`${person2.name} wins!`)
+                alert('Resetting board...')
+                startGame()
+
+            }, '350')
+
+        }
 
         } else {
 
-            draw()
+            setTimeout(() => {
+                draw()
+            }, '350')
 
         }
 
@@ -161,6 +243,7 @@ function draw() {
             (squares[winForm[7][2]].classList.contains('red') || squares[winForm[7][2]].classList.contains('blue'))) {
                 alert('Draw')
                 alert('Reloading page')
-                location.reload()
+                turn = true
+                startGame()
             }
 }

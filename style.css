@@ -21,6 +21,31 @@ h1 {
     justify-content: space-between;
 }
 
+.player-one {
+    font-size: 40px;
+    border: 2px solid red;
+}
+
+.player-two {
+    font-size: 40px;
+    border: 2px solid blue;
+}
+
+.scores {
+    display: flex;
+    justify-content: space-between;
+}
+
+.score-one {
+    font-size: 35px;
+    padding-left: 40px;
+}
+
+.score-two {
+    font-size: 35px;
+    padding-right: 40px;
+}
+
 .container {
     display: grid;
     width: 100vw;
