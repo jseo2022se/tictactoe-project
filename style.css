@@ -37,9 +37,9 @@ h1 {
 }
 
 .red {
-    background-color: red;
+    content: url(/cross-image.png)
 }
 
 .blue {
-    background-color: blue;
+    content: url(/circle-image.png);
 }
