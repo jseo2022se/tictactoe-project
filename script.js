@@ -64,9 +64,42 @@ function selectSquare (event) {
         }
 
         if(check) {
+
             alert('Player One wins!')
             alert('Reload page')
             location.reload()
+            
+        } else {
+
+            if((squares[winForm[0][0]].classList.contains('red') || squares[winForm[0][0]].classList.contains('blue')) &&  
+            (squares[winForm[0][1]].classList.contains('red') || squares[winForm[0][1]].classList.contains('blue')) && 
+            (squares[winForm[0][2]].classList.contains('red') || squares[winForm[0][2]].classList.contains('blue')) &&
+            (squares[winForm[1][0]].classList.contains('red') || squares[winForm[1][0]].classList.contains('blue')) &&
+            (squares[winForm[1][1]].classList.contains('red') || squares[winForm[1][1]].classList.contains('blue')) &&
+            (squares[winForm[1][2]].classList.contains('red') || squares[winForm[1][2]].classList.contains('blue')) &&
+            (squares[winForm[2][0]].classList.contains('red') || squares[winForm[2][0]].classList.contains('blue')) &&
+            (squares[winForm[2][1]].classList.contains('red') || squares[winForm[2][1]].classList.contains('blue')) &&
+            (squares[winForm[2][2]].classList.contains('red') || squares[winForm[2][2]].classList.contains('blue')) &&
+            (squares[winForm[3][0]].classList.contains('red') || squares[winForm[3][0]].classList.contains('blue')) &&
+            (squares[winForm[3][1]].classList.contains('red') || squares[winForm[3][1]].classList.contains('blue')) &&
+            (squares[winForm[3][2]].classList.contains('red') || squares[winForm[3][2]].classList.contains('blue')) &&
+            (squares[winForm[4][0]].classList.contains('red') || squares[winForm[4][0]].classList.contains('blue')) &&
+            (squares[winForm[4][1]].classList.contains('red') || squares[winForm[4][1]].classList.contains('blue')) &&
+            (squares[winForm[4][2]].classList.contains('red') || squares[winForm[4][2]].classList.contains('blue')) &&
+            (squares[winForm[5][0]].classList.contains('red') || squares[winForm[5][0]].classList.contains('blue')) &&
+            (squares[winForm[5][1]].classList.contains('red') || squares[winForm[5][1]].classList.contains('blue')) &&
+            (squares[winForm[5][2]].classList.contains('red') || squares[winForm[5][2]].classList.contains('blue')) &&
+            (squares[winForm[6][0]].classList.contains('red') || squares[winForm[6][0]].classList.contains('blue')) &&
+            (squares[winForm[6][1]].classList.contains('red') || squares[winForm[6][1]].classList.contains('blue')) &&
+            (squares[winForm[6][2]].classList.contains('red') || squares[winForm[6][2]].classList.contains('blue')) &&
+            (squares[winForm[7][0]].classList.contains('red') || squares[winForm[7][0]].classList.contains('blue')) &&
+            (squares[winForm[7][1]].classList.contains('red') || squares[winForm[7][1]].classList.contains('blue')) &&
+            (squares[winForm[7][2]].classList.contains('red') || squares[winForm[7][2]].classList.contains('blue'))) {
+                alert('Draw')
+                alert('Reloading page')
+                location.reload()
+            }
+            
         }
 
     } else {
@@ -97,9 +130,42 @@ function selectSquare (event) {
 
 
         if(check) {
+
             alert('Player Two wins!')
             alert('Reload page')
             location.reload()
+
+        } else {
+
+            if((squares[winForm[0][0]].classList.contains('red') || squares[winForm[0][0]].classList.contains('blue')) &&  
+            (squares[winForm[0][1]].classList.contains('red') || squares[winForm[0][1]].classList.contains('blue')) && 
+            (squares[winForm[0][2]].classList.contains('red') || squares[winForm[0][2]].classList.contains('blue')) &&
+            (squares[winForm[1][0]].classList.contains('red') || squares[winForm[1][0]].classList.contains('blue')) &&
+            (squares[winForm[1][1]].classList.contains('red') || squares[winForm[1][1]].classList.contains('blue')) &&
+            (squares[winForm[1][2]].classList.contains('red') || squares[winForm[1][2]].classList.contains('blue')) &&
+            (squares[winForm[2][0]].classList.contains('red') || squares[winForm[2][0]].classList.contains('blue')) &&
+            (squares[winForm[2][1]].classList.contains('red') || squares[winForm[2][1]].classList.contains('blue')) &&
+            (squares[winForm[2][2]].classList.contains('red') || squares[winForm[2][2]].classList.contains('blue')) &&
+            (squares[winForm[3][0]].classList.contains('red') || squares[winForm[3][0]].classList.contains('blue')) &&
+            (squares[winForm[3][1]].classList.contains('red') || squares[winForm[3][1]].classList.contains('blue')) &&
+            (squares[winForm[3][2]].classList.contains('red') || squares[winForm[3][2]].classList.contains('blue')) &&
+            (squares[winForm[4][0]].classList.contains('red') || squares[winForm[4][0]].classList.contains('blue')) &&
+            (squares[winForm[4][1]].classList.contains('red') || squares[winForm[4][1]].classList.contains('blue')) &&
+            (squares[winForm[4][2]].classList.contains('red') || squares[winForm[4][2]].classList.contains('blue')) &&
+            (squares[winForm[5][0]].classList.contains('red') || squares[winForm[5][0]].classList.contains('blue')) &&
+            (squares[winForm[5][1]].classList.contains('red') || squares[winForm[5][1]].classList.contains('blue')) &&
+            (squares[winForm[5][2]].classList.contains('red') || squares[winForm[5][2]].classList.contains('blue')) &&
+            (squares[winForm[6][0]].classList.contains('red') || squares[winForm[6][0]].classList.contains('blue')) &&
+            (squares[winForm[6][1]].classList.contains('red') || squares[winForm[6][1]].classList.contains('blue')) &&
+            (squares[winForm[6][2]].classList.contains('red') || squares[winForm[6][2]].classList.contains('blue')) &&
+            (squares[winForm[7][0]].classList.contains('red') || squares[winForm[7][0]].classList.contains('blue')) &&
+            (squares[winForm[7][1]].classList.contains('red') || squares[winForm[7][1]].classList.contains('blue')) &&
+            (squares[winForm[7][2]].classList.contains('red') || squares[winForm[7][2]].classList.contains('blue'))) {
+                alert('Draw')
+                alert('Reloading page')
+                location.reload()
+            }
+
         }
 
     }
