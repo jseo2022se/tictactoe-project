@@ -4,6 +4,21 @@ let squares = document.querySelectorAll('.square')
 
 let container = document.querySelector('.container')
 
+let playerOne = document.querySelector('.player-one')
+
+let playerTwo = document.querySelector('.player-two')
+
+let scoreOne = document.querySelector('.score-one')
+
+let scoreTwo = document.querySelector('.score-two')
+
+// let replayBtn = document.querySelector('#replay')
+
+// let exitBtn = document.querySelector('#exit')
+
+// let modalCntr = document.querySelector('.modal-container')
+
+
 let winForm = [
     [0, 1, 2],
     [3, 4, 5],
@@ -24,18 +39,13 @@ class Person {
     }
 }
 
-let person1 = new Person('James', 0)
+let name1 = window.prompt("Enter player one's name: ")
 
-let person2 = new Person('John', 0)
+let name2 = window.prompt("Enter player two's name: ")
 
+let person1 = new Person(name1, 0)
 
-let playerOne = document.querySelector('.player-one')
-
-let playerTwo = document.querySelector('.player-two')
-
-let scoreOne = document.querySelector('.score-one')
-
-let scoreTwo = document.querySelector('.score-two')
+let person2 = new Person(name2, 0)
 
 let turn = true
 
@@ -71,10 +81,16 @@ function selectSquare (event) {
 
     if (turn) {
 
+        playerTwo.classList.remove('player-two-shadow')
+
+        playerOne.classList.add('player-one-shadow')
+
         let factor = 'red'
+
         event.target.classList.add(factor)
 
         let check 
+
         check = win(factor)
 
         if(check) {
@@ -85,7 +101,12 @@ function selectSquare (event) {
 
             if (person1.wins == 3) {
 
+                scoreOne.classList.add('score-shadow')
+
                 setTimeout(() => {
+                    
+                    // modalCntr.classList.add('active')
+                    // console.dir(modalCntr)
 
                     alert(`Congratulations to ${person1.name}! You have won!`)
 
@@ -99,6 +120,7 @@ function selectSquare (event) {
                         alert('Thank you for playing. Good bye.')
                         window.close()
                     }
+
                 }, '350')
                 
             } else {
@@ -123,12 +145,17 @@ function selectSquare (event) {
 
     } else {
 
+        playerOne.classList.remove('player-one-shadow')
+
+        playerTwo.classList.add('player-two-shadow')
+
         let factor = 'blue'
+
         event.target.classList.add(factor)
 
         let check 
-        check = win(factor)
 
+        check = win(factor)
 
         if(check) {
 
@@ -138,6 +165,8 @@ function selectSquare (event) {
 
             if (person2.wins == 3) {
 
+                scoreTwo.classList.add('score-shadow')
+                
                 setTimeout(() => {
 
                     alert(`Congratulations to ${person2.name}! You have won!`)
@@ -242,7 +271,7 @@ function draw() {
             (squares[winForm[7][1]].classList.contains('red') || squares[winForm[7][1]].classList.contains('blue')) &&
             (squares[winForm[7][2]].classList.contains('red') || squares[winForm[7][2]].classList.contains('blue'))) {
                 alert('Draw')
-                alert('Reloading page')
+                alert('Resetting board...')
                 turn = true
                 startGame()
             }
