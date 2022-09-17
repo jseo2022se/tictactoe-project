@@ -74,9 +74,9 @@ h1 {
 }
 
 .red {
-    content: url(./images/cross-image.png)
+    content: url('./images/cross-image.png')
 }
 
 .blue {
-    content: url(./images/circle-image.png)
+    content: url('./images/circle-image.png')
 }
