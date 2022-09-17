@@ -1,4 +1,3 @@
-// alert('yolo')
 
 let squares = document.querySelectorAll('.square')
 
