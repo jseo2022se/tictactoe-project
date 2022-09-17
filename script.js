@@ -12,11 +12,6 @@ let scoreOne = document.querySelector('.score-one')
 
 let scoreTwo = document.querySelector('.score-two')
 
-// let replayBtn = document.querySelector('#replay')
-
-// let exitBtn = document.querySelector('#exit')
-
-// let modalCntr = document.querySelector('.modal-container')
 
 
 let winForm = [
@@ -104,9 +99,6 @@ function selectSquare (event) {
                 scoreOne.classList.add('score-shadow')
 
                 setTimeout(() => {
-                    
-                    // modalCntr.classList.add('active')
-                    // console.dir(modalCntr)
 
                     alert(`Congratulations to ${person1.name}! You have won!`)
 
