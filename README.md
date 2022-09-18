@@ -21,6 +21,7 @@ the game logics into code:
 
 - determining the win conditions for the player
 - determining the draw condition 
+- how to make sure the event listener is being played only once
 - how to reset the board while keeping the scores saved
 
 
