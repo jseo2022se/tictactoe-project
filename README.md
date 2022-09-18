@@ -30,6 +30,7 @@ the game logics into code:
 - Adding modals for win and draw conditions with messages and a 
   restart button and/or exit button
 - Extra game-option: bonus game mode
+- stylizing the website more
 
 
 ## Installation
