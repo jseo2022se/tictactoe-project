@@ -39,15 +39,15 @@ Fork the repo into your repository and have fun
 
 ## Gameplay
 
-![Img-1](tictactoe-img1.jpg)
+![Img-1](/images/tictactoe-img1.jpg)
 
-![Img-2](tictactoe-img2.jpg)
+![Img-2](/images/tictactoe-img2.jpg)
 
-![Img-3](tictactoe-img3.jpg)
+![Img-3](/images/tictactoe-img3.jpg)
 
-![Img-4](tictactoe-img4.jpg)
+![Img-4](/images/tictactoe-img4.jpg)
 
-![Img-5](tictactoe-img5.jpg)
+![Img-5](/images/tictactoe-img5.jpg)
 
 
 ## License
