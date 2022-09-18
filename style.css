@@ -26,6 +26,7 @@ h1 {
     border: 2px solid red;
 }
 
+/* adds shadow effect to player one */
 .player-one-shadow {
     box-shadow: 10px 8px 6px 4px rgb(255, 0, 81);
 }
@@ -35,6 +36,7 @@ h1 {
     border: 2px solid blue;
 }
 
+/* adds shadow effect to player two */
 .player-two-shadow {
     box-shadow: 10px 8px 6px 4px rgb(0, 132, 255);
 }
@@ -54,10 +56,12 @@ h1 {
     padding-right: 40px;
 }
 
+/* adds shadow effect to the scores */
 .score-shadow {
     box-shadow: 8px 6px 4px 2px rgb(255, 200, 0);
 }
 
+/* board size */
 .container {
     display: grid;
     width: 100vw;
@@ -67,16 +71,19 @@ h1 {
     align-content: center;
 }
 
+/* individual sizes of squares */
 .square {
     width: 200px;
     height: 200px;
     border: 2px solid black;
 }
 
+/* cross symbol/image */
 .red {
     content: url('./images/cross-image.png')
 }
 
+/* circle symbol/image */
 .blue {
     content: url('./images/circle-image.png')
 }

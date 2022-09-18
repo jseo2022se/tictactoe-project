@@ -1,4 +1,5 @@
 
+// DOM elements
 let squares = document.querySelectorAll('.square')
 
 let container = document.querySelector('.container')
@@ -12,17 +13,18 @@ let scoreOne = document.querySelector('.score-one')
 let scoreTwo = document.querySelector('.score-two')
 
 
-
-let winForm = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-]
+// Visual guide of win conditions for tic-tac-toe
+//
+// let winForm = [
+//     [0, 1, 2],
+//     [3, 4, 5],
+//     [6, 7, 8],
+//     [0, 3, 6],
+//     [1, 4, 7],
+//     [2, 5, 8],
+//     [0, 4, 8],
+//     [2, 4, 6]
+// ]
 
 
 class Person {
@@ -33,32 +35,40 @@ class Person {
     }
 }
 
+
 let name1 = window.prompt("Enter player one's name: ")
 
 let name2 = window.prompt("Enter player two's name: ")
+
 
 let person1 = new Person(name1, 0)
 
 let person2 = new Person(name2, 0)
 
+
+// variable that determines players' turns (True => Player 1, False => Player 2)
 let turn = true
 
 
 startGame()
 
 
+// function for starting the game
 function startGame () {
 
-    playerOne.textContent = `${person1.name}`
+    playerOne.textContent = `${person1.name}` 
 
     playerTwo.textContent = `${person2.name}`
 
     squares.forEach(square => {
 
-        let red = 'red'
+        let red = 'red' 
         let blue = 'blue'
         
-        if (square.classList.contains(red)) {
+
+        // checks for whether the square already has class red/blue and removes it 
+        // wipes the board whenever a new round is initiated
+        if (square.classList.contains(red)) { //
             square.classList.remove(red)
 
         } else if (square.classList.contains(blue)) {
@@ -71,8 +81,11 @@ function startGame () {
 }
 
 
+// function that assigns classes that contain the images/symbols to the square 
+// also invokes the win and draw functions
 function selectSquare (event) {
 
+    // player one's turn
     if (turn) {
 
         playerTwo.classList.remove('player-two-shadow')
@@ -87,12 +100,16 @@ function selectSquare (event) {
 
         check = win(factor)
 
+
+        // if player one wins round, score incremented and updated
         if(check) {
 
             person1.wins++
 
             scoreOne.textContent = `Wins: ${person1.wins}`
 
+
+            // if # of wins is 3, player 1 is overall winner and is given option to replay or exit
             if (person1.wins == 3) {
 
                 scoreOne.classList.add('score-shadow')
@@ -104,16 +121,19 @@ function selectSquare (event) {
                     if(confirm('Would you like to play again?')) {
 
                         alert('Resetting game...')
-                        location.reload()
+                        location.reload() // if player wants to play again, reloads the entire page, resetting all data
                         
                     } else {
 
                         alert('Thank you for playing. Good bye.')
-                        window.close()
+                        window.close() // exits window tab
                     }
 
                 }, '350')
                 
+
+            // else is read when the # of wins is not 3 
+            // resets the board and starts the next round    
             } else {
 
                 setTimeout(() => {
@@ -125,6 +145,7 @@ function selectSquare (event) {
             }, '350')
         }
 
+        // if the square is not a win for the player, a draw check is done
         } else {
 
             setTimeout(() => {
@@ -134,6 +155,8 @@ function selectSquare (event) {
 
         }
 
+
+      // player two's turn  
     } else {
 
         playerOne.classList.remove('player-one-shadow')
@@ -148,12 +171,16 @@ function selectSquare (event) {
 
         check = win(factor)
 
+
+        // if player two wins round, score incremented and updated
         if(check) {
 
             person2.wins++
 
             scoreTwo.textContent = `Wins: ${person2.wins}`
 
+
+            // if # of wins is 3, player 1 is overall winner and is given option to replay or exit
             if (person2.wins == 3) {
 
                 scoreTwo.classList.add('score-shadow')
@@ -165,15 +192,18 @@ function selectSquare (event) {
                     if(confirm('Would you like to play again?')) {
 
                         alert('Resetting game...')
-                        location.reload()
+                        location.reload() // if player wants to play again, reloads the entire page, resetting all data
 
                     } else {
     
                         alert('Thank you for playing. Good bye.')
-                        window.close()
+                        window.close() // exits window tab
                     }
                 }, '350')
 
+
+            // else is read when the # of wins is not 3 
+            // resets the board and starts the next round    
             } else { 
 
                 setTimeout(() => {
@@ -186,6 +216,8 @@ function selectSquare (event) {
 
         }
 
+
+        // if the square is not a win for the player, a draw check is done
         } else {
 
             setTimeout(() => {
@@ -196,37 +228,42 @@ function selectSquare (event) {
 
     }
 
+
+    // after the current player's turn, the variable 'turn' is set to the opposite 
     turn = !turn
 
-    event.target.removeEventListener('click', selectSquare)
 
+    // event listener is removed to stop it from running
+    event.target.removeEventListener('click', selectSquare)
 }
 
 
+// function that checks for the win condition after a user clicks on a square 
+// checks for whether three squares (as shown in the visual guide for win condition) contain the same class 
 function win(factor) {
     
-    if(squares[winForm[0][0]].classList.contains(factor) && squares[winForm[0][1]].classList.contains(factor) && squares[winForm[0][2]].classList.contains(factor)) {
+    if(squares[0].classList.contains(factor) && squares[1].classList.contains(factor) && squares[2].classList.contains(factor)) {
         return true
 
-    } else if (squares[winForm[1][0]].classList.contains(factor) && squares[winForm[1][1]].classList.contains(factor) && squares[winForm[1][2]].classList.contains(factor)) {
+    } else if (squares[3].classList.contains(factor) && squares[4].classList.contains(factor) && squares[5].classList.contains(factor)) {
         return true
 
-    } else if (squares[winForm[2][0]].classList.contains(factor) && squares[winForm[2][1]].classList.contains(factor) && squares[winForm[2][2]].classList.contains(factor)) {
+    } else if (squares[6].classList.contains(factor) && squares[7].classList.contains(factor) && squares[8].classList.contains(factor)) {
         return true
 
-    } else if (squares[winForm[3][0]].classList.contains(factor) && squares[winForm[3][1]].classList.contains(factor) && squares[winForm[3][2]].classList.contains(factor)) {
+    } else if (squares[0].classList.contains(factor) && squares[3].classList.contains(factor) && squares[6].classList.contains(factor)) {
         return true
 
-    } else if (squares[winForm[4][0]].classList.contains(factor) && squares[winForm[4][1]].classList.contains(factor) && squares[winForm[4][2]].classList.contains(factor)) {
+    } else if (squares[1].classList.contains(factor) && squares[4].classList.contains(factor) && squares[7].classList.contains(factor)) {
         return true
 
-    } else if (squares[winForm[5][0]].classList.contains(factor) && squares[winForm[5][1]].classList.contains(factor) && squares[winForm[5][2]].classList.contains(factor)) {
+    } else if (squares[2].classList.contains(factor) && squares[5].classList.contains(factor) && squares[8].classList.contains(factor)) {
         return true
 
-    } else if (squares[winForm[6][0]].classList.contains(factor) && squares[winForm[6][1]].classList.contains(factor) && squares[winForm[6][2]].classList.contains(factor)) {
+    } else if (squares[0].classList.contains(factor) && squares[4].classList.contains(factor) && squares[8].classList.contains(factor)) {
         return true
 
-    } else if (squares[winForm[7][0]].classList.contains(factor) && squares[winForm[7][1]].classList.contains(factor) && squares[winForm[7][2]].classList.contains(factor)) {
+    } else if (squares[2].classList.contains(factor) && squares[4].classList.contains(factor) && squares[6].classList.contains(factor)) {
         return true
 
     } else {
@@ -235,32 +272,29 @@ function win(factor) {
 }
 
 
+// a function that checks after the win function, to determine whether the game is now a draw
+// checks whether every square has either class ('red' or 'blue') 
+// and if it does considers it a draw and resets the board
 function draw() {
 
-    if((squares[winForm[0][0]].classList.contains('red') || squares[winForm[0][0]].classList.contains('blue')) &&  
-            (squares[winForm[0][1]].classList.contains('red') || squares[winForm[0][1]].classList.contains('blue')) && 
-            (squares[winForm[0][2]].classList.contains('red') || squares[winForm[0][2]].classList.contains('blue')) &&
-            (squares[winForm[1][0]].classList.contains('red') || squares[winForm[1][0]].classList.contains('blue')) &&
-            (squares[winForm[1][1]].classList.contains('red') || squares[winForm[1][1]].classList.contains('blue')) &&
-            (squares[winForm[1][2]].classList.contains('red') || squares[winForm[1][2]].classList.contains('blue')) &&
-            (squares[winForm[2][0]].classList.contains('red') || squares[winForm[2][0]].classList.contains('blue')) &&
-            (squares[winForm[2][1]].classList.contains('red') || squares[winForm[2][1]].classList.contains('blue')) &&
-            (squares[winForm[2][2]].classList.contains('red') || squares[winForm[2][2]].classList.contains('blue')) &&
-            (squares[winForm[3][0]].classList.contains('red') || squares[winForm[3][0]].classList.contains('blue')) &&
-            (squares[winForm[3][1]].classList.contains('red') || squares[winForm[3][1]].classList.contains('blue')) &&
-            (squares[winForm[3][2]].classList.contains('red') || squares[winForm[3][2]].classList.contains('blue')) &&
-            (squares[winForm[4][0]].classList.contains('red') || squares[winForm[4][0]].classList.contains('blue')) &&
-            (squares[winForm[4][1]].classList.contains('red') || squares[winForm[4][1]].classList.contains('blue')) &&
-            (squares[winForm[4][2]].classList.contains('red') || squares[winForm[4][2]].classList.contains('blue')) &&
-            (squares[winForm[5][0]].classList.contains('red') || squares[winForm[5][0]].classList.contains('blue')) &&
-            (squares[winForm[5][1]].classList.contains('red') || squares[winForm[5][1]].classList.contains('blue')) &&
-            (squares[winForm[5][2]].classList.contains('red') || squares[winForm[5][2]].classList.contains('blue')) &&
-            (squares[winForm[6][0]].classList.contains('red') || squares[winForm[6][0]].classList.contains('blue')) &&
-            (squares[winForm[6][1]].classList.contains('red') || squares[winForm[6][1]].classList.contains('blue')) &&
-            (squares[winForm[6][2]].classList.contains('red') || squares[winForm[6][2]].classList.contains('blue')) &&
-            (squares[winForm[7][0]].classList.contains('red') || squares[winForm[7][0]].classList.contains('blue')) &&
-            (squares[winForm[7][1]].classList.contains('red') || squares[winForm[7][1]].classList.contains('blue')) &&
-            (squares[winForm[7][2]].classList.contains('red') || squares[winForm[7][2]].classList.contains('blue'))) {
+    if((squares[0].classList.contains('red') || squares[0].classList.contains('blue')) &&  
+
+            (squares[1].classList.contains('red') || squares[1].classList.contains('blue')) && 
+
+            (squares[2].classList.contains('red') || squares[2].classList.contains('blue')) &&
+
+            (squares[3].classList.contains('red') || squares[3].classList.contains('blue')) &&
+
+            (squares[4].classList.contains('red') || squares[4].classList.contains('blue')) &&
+
+            (squares[5].classList.contains('red') || squares[5].classList.contains('blue')) &&
+
+            (squares[6].classList.contains('red') || squares[6].classList.contains('blue')) &&
+
+            (squares[7].classList.contains('red') || squares[7].classList.contains('blue')) &&
+
+            (squares[8].classList.contains('red') || squares[8].classList.contains('blue'))) {
+
                 alert('Draw')
                 alert('Resetting board...')
                 turn = true
