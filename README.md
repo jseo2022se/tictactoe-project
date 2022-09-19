@@ -51,6 +51,11 @@ Fork the repo into your repository and have fun
 ![Img-5](/images/tictactoe-img5.jpg)
 
 
+## Github Pages
+
+https://jseo2022se.github.io/tictactoe-project/
+
+
 ## License
 
 [MIT]
